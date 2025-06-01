@@ -1,7 +1,6 @@
 /* AdminStyles.css */
-
 .admin-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 20px;
   font-family: 'Arial', sans-serif;
@@ -75,48 +74,166 @@
   margin-bottom: 20px;
 }
 
+.count-info {
+  color: #2c3e50;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Table container avec scroll horizontal si nécessaire */
+.table-container {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles du tableau principal */
 .etudiants-table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 25px;
+  background-color: white;
+  min-width: 800px;
 }
 
 .etudiants-table th,
 .etudiants-table td {
-  padding: 12px 15px;
+  padding: 12px 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+  vertical-align: middle;
 }
 
 .etudiants-table th {
   background-color: #3498db;
   color: white;
   font-weight: bold;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.etudiants-table tr:nth-child(even) {
-  background-color: #f2f2f2;
+/* Styles pour les lignes principales */
+.main-row {
+  background-color: white;
+  transition: all 0.2s ease;
 }
 
-.etudiants-table tr:hover {
-  background-color: #e9f7fe;
+.main-row:nth-child(4n-2) {
+  background-color: #f8f9fa;
 }
 
+.main-row:hover {
+  background-color: #e3f2fd;
+  transform: scale(1.002);
+}
+
+/* Styles pour les lignes de détail */
+.detail-row {
+  background-color: #f0f8ff;
+  border-left: 4px solid #3498db;
+}
+
+.detail-row td {
+  padding: 0;
+}
+
+/* Conteneur des détails de l'étudiant */
+.student-details {
+  padding: 20px;
+  background: linear-gradient(135deg, #f0f8ff 0%, #e8f4fd 100%);
+  border-radius: 8px;
+  margin: 10px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.detail-item {
+  background-color: white;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.detail-item strong {
+  color: #2c3e50;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Bouton toggle */
+.toggle-button {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-button:hover {
+  background: linear-gradient(135deg, #2980b9, #1f6391);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.toggle-button:active {
+  transform: translateY(0);
+}
+
+/* Styles pour les colonnes principales */
+.student-name,
+.student-firstname {
+  font-weight: bold;
+  color: #2c3e50;
+  min-width: 100px;
+}
+
+.student-sex {
+  text-align: center;
+  font-weight: bold;
+  color: #7f8c8d;
+  min-width: 60px;
+}
+
+/* Colonnes d'absence */
 .absence-cell {
   text-align: center;
+  padding: 8px 4px;
+  min-width: 80px;
+  border-left: 1px solid #e9ecef;
 }
 
 .absence-cell input[type="checkbox"] {
   margin-right: 5px;
   cursor: pointer;
+  transform: scale(1.1);
 }
 
 .absence-cell label {
-  font-size: 13px;
+  font-size: 10px;
   color: #e74c3c;
   cursor: pointer;
+  font-weight: bold;
+  display: block;
+  line-height: 1.2;
 }
 
+/* Actions */
 .actions {
   display: flex;
   justify-content: flex-end;
@@ -124,18 +241,53 @@
 }
 
 .save-button {
-  background-color: #2ecc71;
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
+  padding: 12px 24px;
+  border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .save-button:hover {
-  background-color: #27ae60;
+  background: linear-gradient(135deg, #27ae60, #1e8449);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Date selection */
+.date-selection {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.date-selection label {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.date-picker {
+  padding: 10px 15px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.date-picker:hover {
+  border-color: #3498db;
+}
+
+.date-picker:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
 }
 
 /* Animation pour le message de confirmation */
@@ -146,55 +298,86 @@
 
 .confirmation-message {
   animation: fadeIn 0.5s ease-in-out;
-  padding: 10px;
+  padding: 15px;
   margin-top: 15px;
   background-color: #dff0d8;
   color: #3c763d;
-  border-radius: 4px;
+  border-radius: 6px;
   text-align: center;
-}
-
-.date-selection {
-  margin: 20px 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.date-selection label {
-  font-weight: bold;
-}
-
-.date-picker {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.date-picker:hover {
-  border-color: #666;
+  border-left: 4px solid #5cb85c;
 }
 
 /* Styles pour le calendrier */
 .react-datepicker {
   font-family: inherit;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .react-datepicker__header {
   background-color: #f8f9fa;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ddd;
+  border-radius: 6px 6px 0 0;
 }
 
 .react-datepicker__day--selected {
-  background-color: #007bff !important;
+  background-color: #3498db !important;
   color: white !important;
 }
 
 .react-datepicker__day:hover {
-  background-color: #e9ecef;
+  background-color: #e3f2fd;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .admin-container {
+    padding: 15px;
+  }
+  
+  .etudiants-table th,
+  .etudiants-table td {
+    padding: 8px 6px;
+    font-size: 12px;
+  }
+  
+  .toggle-button {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+  
+  .detail-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .etudiants-table {
+    min-width: 600px;
+  }
+  
+  .absence-cell {
+    min-width: 60px;
+  }
+  
+  .absence-cell label {
+    font-size: 9px;
+  }
+  
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .admin-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .date-selection {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
